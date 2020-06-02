@@ -1,0 +1,207 @@
+//
+//  PrefixHeader.pch
+//  ZhuangBei
+//
+//  Created by aa on 2020/4/22.
+//  Copyright © 2020 aa. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "MainSingleton.h"
+#import "Masonry.h"
+#import "zHud.h"
+#import "UIViewAdditions.h"
+#import "UIView+Extension.h"
+#import "UIButton+HQCustomIcon.h"
+#import "TYAttributedLabel.h"
+#import "UIImage+Extension.h"
+#import <YYKit.h>
+#import "NSArray+JSON.h"
+#import "NSDictionary+JSON.h"
+#import "MJRefresh.h"
+#import "LEEAlert.h"
+#import "cookiesTool.h"
+#import "zUserInfo.h"
+#import "MJExtension.h"
+#import "UIButton+typeLayout.h"
+#import "NSString+Size.h"
+#import "LWLabel.h"
+#import "LWButton.h"
+#import "ServiceManager.h"
+#import   "UIImageView+WebCache.h"
+#import "UIImageView+LWImageView.h"
+#import "zInterfacedConst.h"
+#import "SDWebImage.h"
+
+#define kLoginUserInfo @"loginUserInfo"
+#define kUserDefaultsCookie @"kUserDefaultsCookie"
+
+#define JGAPPK  @"341a4b6b8631c852448e6f94"
+// 真实wx96c1105f75be3361
+//wx51e3155d3e2276a7
+#define weXinAppId @"wx51e3155d3e2276a7"
+#define weiXinSecret @"ac565629bff939c3d10204feea96fabe"
+#define qqAppId @"101878768"
+#define qqAppKey @"85a69869801e368ed00b74bc3f0904b2"
+
+
+#define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
+
+#define kWidthFlot(flotNum) flotNum * (SCREEN_WIDTH/375.f)
+#define kHegitFlot(flotNum) flotNum * (SCREEN_HEIGHT/667.f)
+
+#define KstatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
+
+
+#define kFont(flotNum)  [UIFont systemFontOfSize:flotNum]
+
+//单例
+#define kMainSingleton MainSingleton
+
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+//颜色
+#define ZFColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//程序主颜色
+#define kNavColor [kMainSingleton colorWithHexString:@"#3F50B5" alpha:1]
+
+#define  LL_TabbarSafeBottomMargin         (iPhoneX ? 34.f : 0.f)
+
+/**
+ * 状态栏高度
+ */
+#define  STATUS_BAR_HEIGHT                                              ((iPhoneX) ? 44.f : 20.f)
+
+/**
+ * 状态栏 ＋ 导航栏 高度
+ */
+#define NAVIGATOR_HEIGHT                                    ((STATUS_BAR_HEIGHT) + (44))
+
+/**
+ tabbar
+ */
+#define  TABBAR_HIEGHT self.tabBarController.tabBar.height
+/**
+ 判断是否iponeX
+ */
+#define iPhoneX                                                          [[UIScreen mainScreen] bounds].size.width >=375.0f && [[UIScreen mainScreen] bounds].size.height >=812.0f&& IS_IPHONE
+/**
+ * 判断是否是iPhone
+ */
+#define IS_IPHONE                                                       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
+/**
+ * 系统偏好设置单例
+ */
+#define SYSTEM_USERDEFAULTS                                             [NSUserDefaults standardUserDefaults]
+
+/**
+ * 系统通知中心
+ */
+#define SYSTEM_NOTIFICATIONCENTER                                       [NSNotificationCenter defaultCenter]
+
+/**
+ * 打印Log宏
+ */
+#ifdef DEBUG
+
+#define LWLog( s, ... ) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(s), ##__VA_ARGS__] UTF8String] );
+
+#else
+
+# define LWLog(...);
+
+#endif
+
+
+/**
+ 创建网络请求参数para字典
+ */
+#define PARA_CREART \
+NSMutableDictionary* para = [NSMutableDictionary dictionary];\
+
+#define PARA_SET(value,key) \
+[para setValue:value forKey:key];
+
+/**
+ 保存数据（value,key）
+ */
+#define  USERDEFAULTS_SET(value,key)\
+[SYSTEM_USERDEFAULTS setObject:value forKey:key];
+
+/**
+ 获取本地信息
+ */
+#define  USERDEFAULTS_GET(key) [SYSTEM_USERDEFAULTS objectForKey:key]
+
+/**
+ 移除本地保存信息
+ */
+#define  USERDEFAULTS_RE(key)  [SYSTEM_USERDEFAULTS removeObjectForKey:key]
+
+/**
+ ----发送通知----
+ */
+#define POST_NOTI(key,obj) [SYSTEM_NOTIFICATIONCENTER postNotificationName:key object:obj];
+#define ADD_NOTI(selectorName,key) [SYSTEM_NOTIFICATIONCENTER addObserver:self selector:@selector(selectorName) name:key object:nil];
+#define REMOVIE_NOTI(key) [SYSTEM_NOTIFICATIONCENTER removeObserver:self name:key object:nil];
+
+/**
+ 获取本地图片
+ */
+#define  IMAGENAME(name) [UIImage imageNamed:name]
+
+/**
+ * 获取APP版本
+ */
+#define APPVERSION                                                          ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
+
+/**
+ * 弱化指针
+ */
+#define WEAKSELF(type)                                                      __weak typeof(type) weak##type = type;
+
+/**
+ *  RGBA
+ */
+#define RGB(r,g,b)  [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:1.0f]
+
+/**
+ *  RGBA
+ */
+#define RGBA(R, G, B, A) [UIColor colorWithRed:R / 255.0 green:G / 255.0 blue:B / 255.0 alpha:A]
+
+/**
+ 判断是否为空
+ */
+#define DataCheckMacro(var)   (var && var != NULL && ![var isEqual:[NSNull null]])
+/**
+ 取值 如果为nil/<null> 则返回 ""
+ */
+#define LWDATA(var) DataCheckMacro(var) ? var : @""
+
+/**
+ 背景色
+ */
+#define BASECOLOR_BLACKGROUD RGB(240,241,242)
+
+/**
+ 默认文字黑色
+ */
+#define BASECOLOR_TEXTCOLOR RGB(74,74,74)
+
+//分割线颜色
+#define kSeparatorColor   RGB(211,211,211)
+
+// 描边颜色
+#define BASECOLOR_BOARD RGB(221,221,221)
+
+// 155
+#define BASECOLOR_GREYCOLOR155 RGB(155,155,155)
+
+// 蓝色
+#define BASECOLOR_BLUECOLOR [UIColor colorWithRed:63/255.0 green:80/255.0 blue:181/255.0 alpha:1.0]
+
+#endif /* PrefixHeader_pch */
