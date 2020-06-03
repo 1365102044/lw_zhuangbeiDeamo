@@ -312,7 +312,7 @@ NSString *const getlist_oto_url =  @"app/appfriendmessage/getFriendMsgList";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = UIColor.whiteColor;
     self.currentPage = 1;
     
     [self createUI];

@@ -1,0 +1,87 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - IQKeyboardManager (6.5.5)
+  - JCore (2.2.5)
+  - JShare (1.8.1):
+    - JCore (< 3.0.0, >= 1.2.0)
+  - LEEAlert (1.3.10)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
+  - MJExtension (3.2.1)
+  - MJRefresh (3.4.3)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.7.4):
+    - SDWebImage/Core (= 5.7.4)
+  - SDWebImage/Core (5.7.4)
+  - TYAttributedLabel (2.6.6)
+  - UITextView-WZB (1.1.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - IQKeyboardManager (~> 6.5.5)
+  - JShare (~> 1.8.1)
+  - LEEAlert (~> 1.3.6)
+  - Masonry (~> 1.1.0)
+  - MBProgressHUD (~> 1.2.0)
+  - MJExtension (~> 3.2.1)
+  - MJRefresh (~> 3.4.1)
+  - SDCycleScrollView (>= 1.80)
+  - SDWebImage (~> 5.7.3)
+  - TYAttributedLabel (~> 2.6.2)
+  - UITextView-WZB (= 1.1.1)
+  - YYKit (~> 1.0.9)
+
+SPEC REPOS:
+  https://gitee.com/mirrors/CocoaPods-Specs.git:
+    - AFNetworking
+    - IQKeyboardManager
+    - JCore
+    - JShare
+    - LEEAlert
+    - Masonry
+    - MBProgressHUD
+    - MJExtension
+    - MJRefresh
+    - SDCycleScrollView
+    - SDWebImage
+    - TYAttributedLabel
+    - UITextView-WZB
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  JCore: d75c0306dc99875d323d23e5a063b3a3ef22335a
+  JShare: d19013ffb1a095de31b20236fe08e9c74064cfe5
+  LEEAlert: 72b67ce3df9f207466b79d041568d35b1a73389d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 48b88379b798fd1e4298f95bb25d2cdabbf4deb3
+  TYAttributedLabel: cb8fc910d97eb5224936d4f692a78e042af691b2
+  UITextView-WZB: aa7306ec35ad35d325f8e608366ecd5ac8c8eed9
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: a5ef5b498f1e1d30b4183c6aad798a4cb3928284
+
+COCOAPODS: 1.9.1

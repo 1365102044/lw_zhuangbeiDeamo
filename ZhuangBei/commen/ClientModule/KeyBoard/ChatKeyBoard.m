@@ -76,10 +76,11 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        self.backgroundColor = UIColor.whiteColor;
         [self addSubview:self.chatToolBar];
         [self addSubview:self.facePanel];
         [self addSubview:self.morePanel];
-        [self addSubview:self.OAtoolbar];
+//        [self addSubview:self.OAtoolbar];
         
         __weak __typeof(self) weakself = self;
         self.OAtoolbar.switchAction = ^(){
@@ -110,7 +111,7 @@
             self.facePanel.hidden = NO;
             
             self.lastChatKeyboardY = self.frame.origin.y;
-            self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame), kScreenWidth, CGRectGetHeight(self.frame));
+            self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame) -LL_TabbarSafeBottomMargin, kScreenWidth, CGRectGetHeight(self.frame));
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kFacePanelHeight, CGRectGetWidth(self.frame), kFacePanelHeight);
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
             
@@ -163,13 +164,13 @@
                 //键盘收起
                 if (self.keyBoardStyle == KeyBoardStyleChat)
                 {
-                    self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                    self.frame = CGRectMake(0, targetY-LL_TabbarSafeBottomMargin, CGRectGetWidth(self.frame), self.frame.size.height);
                     
                 }else if (self.keyBoardStyle == KeyBoardStyleComment)
                 {
                     if (self.chatToolBar.voiceSelected)
                     {
-                        self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                        self.frame = CGRectMake(0, targetY-LL_TabbarSafeBottomMargin, CGRectGetWidth(self.frame), self.frame.size.height);
                     }
                     else
                     {
@@ -276,7 +277,7 @@
         [UIView animateWithDuration:0.25 animations:^{
             
             self.lastChatKeyboardY = self.frame.origin.y;
-            self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame), kScreenWidth, CGRectGetHeight(self.frame));
+            self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame)-LL_TabbarSafeBottomMargin, kScreenWidth, CGRectGetHeight(self.frame));
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kFacePanelHeight, CGRectGetWidth(self.frame), kFacePanelHeight);
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
             
@@ -562,15 +563,20 @@
         }
         else
         {
+            if (self.chatToolBar.faceBtn.selected) {
+                self.morePanel.hidden = YES;
+                self.facePanel.hidden = NO;
+            }
             if(([self getSuperViewH] - CGRectGetMinY(self.frame)) > self.chatToolBar.frame.size.height)
             {
                 [UIView animateWithDuration:0.25 animations:^{
                     
                     self.lastChatKeyboardY = self.frame.origin.y;
                     CGFloat y = self.frame.origin.y;
-                    y = [self getSuperViewH] - self.chatToolBar.frame.size.height;
+                    y = [self getSuperViewH] - self.chatToolBar.frame.size.height-LL_TabbarSafeBottomMargin;
                     self.frame = CGRectMake(0, y, self.frame.size.width, self.frame.size.height);
-                    
+                    self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kFacePanelHeight, CGRectGetWidth(self.frame), kFacePanelHeight);
+                    self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
                     [self updateAssociateTableViewFrame];
                     
                 }];
