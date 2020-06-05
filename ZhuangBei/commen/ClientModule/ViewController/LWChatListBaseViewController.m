@@ -354,7 +354,7 @@ NSString *const getlist_oto_url =  @"app/appfriendmessage/getFriendMsgList";
     self.chatKeyBoard.placeHolder = @"来聊吧...";
     
     self.chatKeyBoard.allowVoice = NO;
-    self.chatKeyBoard.allowMore = NO;
+//    self.chatKeyBoard.allowMore = NO;
 }
 
 
@@ -549,7 +549,7 @@ NSString *const getlist_oto_url =  @"app/appfriendmessage/getFriendMsgList";
 #pragma mark -- ChatKeyBoardDataSource
 - (NSArray<MoreItem *> *)chatKeyBoardMorePanelItems
 {
-    MoreItem *item1 = [MoreItem moreItemWithPicName:@"sharemore_location" highLightPicName:nil itemName:@"相册"];
+    MoreItem *item1 = [MoreItem moreItemWithPicName:@"sharemore_vioe" highLightPicName:nil itemName:@"相册"];
     MoreItem *item2 = [MoreItem moreItemWithPicName:@"sharemore_pic" highLightPicName:nil itemName:@"相机"];
     //    MoreItem *item3 = [MoreItem moreItemWithPicName:@"sharemore_video" highLightPicName:nil itemName:@"连接"];
     return @[item1, item2,];

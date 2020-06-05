@@ -96,6 +96,8 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
         [self addObserver:self forKeyPath:@"self.chatToolBar.frame" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        self.morePanel.hidden = YES;
+        self.facePanel.hidden = YES;
     }
     return self;
 }
@@ -566,6 +568,11 @@
             if (self.chatToolBar.faceBtn.selected) {
                 self.morePanel.hidden = YES;
                 self.facePanel.hidden = NO;
+            }
+            if (self.chatToolBar.moreBtn.selected) {
+                self.morePanel.hidden = YES;
+                self.facePanel.hidden = YES;
+                self.chatToolBar.moreBtn.selected = NO;
             }
             if(([self getSuperViewH] - CGRectGetMinY(self.frame)) > self.chatToolBar.frame.size.height)
             {
