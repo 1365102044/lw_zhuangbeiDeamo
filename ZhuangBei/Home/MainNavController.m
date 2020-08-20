@@ -40,9 +40,7 @@
     UIBarButtonItem * leftBarButtonItem =   [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"return_btn"] style:UIBarButtonItemStylePlain target:self action:nil];
     
     self.navigationItem.leftBarButtonItem =leftBarButtonItem;
-
 }
-
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
